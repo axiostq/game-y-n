@@ -16,47 +16,61 @@
     <style>
         #noButton {
             position: relative;
+            transition: transform 0.3s ease, padding 0.3s ease;
+        }
+        
+        #noButton:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+
+        #loveButton {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        #loveButton:hover {
+            transform: scale(1.05) rotate(5deg);
+            background-image: linear-gradient(to right, #ff0077, #ff5599);
         }
     </style>
 </head>
 <body class="flex items-center justify-center bg-white min-h-screen">
-<div class="container mx-auto text-center mt-20">
+<div class="container mx-auto text-center mt-20 px-4">
     <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 items-center">
         <div>
-            <span class="font-bold text-xl">ที่รักรักเค้าม้ายยย?</span>
+            <span class="font-bold text-xl sm:text-2xl md:text-3xl">ที่รักรักเค้าม้ายยย?</span>
             <img
                 id="mainImage"
-                src="/images/doyou.png"
+                src="doyou.png"
                 alt="Do you?"
                 class="mx-auto mt-4"
             />
         </div>
-        <div class="grid grid-cols-2">
-          <div>
-            <button
-            id="noButton"
-            type="button"
-            class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-32 py-14 text-center me-2 mb-2"
-            onmouseover="changeImage('/images/hm.png')"
-            onmouseout="resetImage()"
-            onclick="handleNoClick()"
-        >
-           <span class="text-3xl font-bold">ไม่</span> 
-        </button>
-          </div>
-          <div>
-              <button
-                type="button"
-                class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-32 py-14 text-center me-2 mb-2"
-                onmouseover="changeImage('/images/pinkping.png')"
-                onmouseout="resetImage()"
-                onclick="redirectToPage('love.html')"
-            >
-            <span class="text-3xl font-bold">รักกก</span> 
-        </button>
-          </div>
+        <div class="grid grid-cols-2 gap-4 mt-8">
+            <div>
+                <button
+                    id="noButton"
+                    type="button"
+                    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm sm:text-base md:text-lg lg:text-xl px-12 sm:px-16 md:px-20 py-6 sm:py-8 md:py-10 text-center"
+                    onmouseover="changeImage('hm.png')"
+                    onmouseout="resetImage()"
+                    onclick="handleNoClick()"
+                >
+                    <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">ไม่</span> 
+                </button>
+            </div>
+            <div>
+                <button
+                    id="loveButton"
+                    type="button"
+                    class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm sm:text-base md:text-lg lg:text-xl px-12 sm:px-16 md:px-20 py-6 sm:py-8 md:py-10 text-center"
+                    onmouseover="changeImage('pinkping.png')"
+                    onmouseout="resetImage()"
+                    onclick="redirectToPage('love.html')"
+                >
+                    <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">รักกก</span> 
+                </button>
+            </div>
         </div>
-
     </div>
 </div>
 <script>
@@ -67,7 +81,7 @@
     }
 
     function resetImage() {
-        document.getElementById("mainImage").src = "/images/doyou.png";
+        document.getElementById("mainImage").src = "doyou.png";
     }
 
     function handleNoClick() {
