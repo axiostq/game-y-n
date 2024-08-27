@@ -1,6 +1,6 @@
 # 💖 จีบเธอ - เกมขอความรักจากแฟน 💖
 
-![จีบเธอ Game Preview](link_to_game_preview_image.png)
+![จีบเธอ Game Preview](https://axiostq.github.io/game-y-n/)
 
 ## 🎮 วิธีเล่น
 
