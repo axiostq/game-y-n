@@ -1,111 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-        rel="shortcut icon"
-        href="https://www.iconpacks.net/icons/1/free-heart-icon-431-thumb.png"
-        type="image/x-icon"
+      rel="shortcut icon"
+      href="https://www.iconpacks.net/icons/1/free-heart-icon-431-thumb.png"
+      type="image/x-icon"
     />
     <title>จีบเธอ</title>
-    <link
-        href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-        rel="stylesheet"
-    />
     <style>
-        #noButton {
-            position: relative;
-            transition: transform 0.3s ease, padding 0.3s ease;
-        }
-        
-        #noButton:hover {
-            transform: scale(1.05) rotate(-5deg);
-        }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+      }
+      .image-container {
+        position: relative;
+        display: inline-block;
+      }
 
-        #loveButton {
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+      .title {
+        font-weight: bold;
+        font-size: 35px;
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
 
-        #loveButton:hover {
-            transform: scale(1.05) rotate(5deg);
-            background-image: linear-gradient(to right, #ff0077, #ff5599);
+      #mainImage {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      #mainImage {
+        margin-top: 16px;
+      }
+      .button-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .button {
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 24px 48px;
+        font-size: 24px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      #noButton {
+        background-image: linear-gradient(to right, #f87171, #ef4444, #dc2626);
+      }
+      #noButton:hover {
+        transform: scale(1.05) rotate(-5deg);
+      }
+      #loveButton {
+        background-image: linear-gradient(to right, #ec4899, #db2777, #be185d);
+      }
+      #loveButton:hover {
+        transform: scale(1.05) rotate(5deg);
+        background-image: linear-gradient(to right, #ff0077, #ff5599);
+      }
+      @media (max-width: 640px) {
+        .title {
+          font-size: 20px;
         }
+        .button {
+          font-size: 20px;
+          padding: 20px 40px;
+        }
+      }
     </style>
-</head>
-<body class="flex items-center justify-center bg-white min-h-screen">
-<div class="container mx-auto text-center mt-20 px-4">
-    <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 items-center">
-        <div>
-            <span class="font-bold text-xl sm:text-2xl md:text-3xl">ที่รักรักเค้าม้ายยย?</span>
-            <img
-                id="mainImage"
-                src="doyou.png"
-                alt="Do you?"
-                class="mx-auto mt-4"
-            />
-        </div>
-        <div class="grid grid-cols-2 gap-4 mt-8">
-            <div>
-                <button
-                    id="noButton"
-                    type="button"
-                    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm sm:text-base md:text-lg lg:text-xl px-12 sm:px-16 md:px-20 py-6 sm:py-8 md:py-10 text-center"
-                    onmouseover="changeImage('hm.png')"
-                    onmouseout="resetImage()"
-                    onclick="handleNoClick()"
-                >
-                    <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">ไม่</span> 
-                </button>
-            </div>
-            <div>
-                <button
-                    id="loveButton"
-                    type="button"
-                    class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm sm:text-base md:text-lg lg:text-xl px-12 sm:px-16 md:px-20 py-6 sm:py-8 md:py-10 text-center"
-                    onmouseover="changeImage('pinkping.png')"
-                    onmouseout="resetImage()"
-                    onclick="redirectToPage('love.html')"
-                >
-                    <span class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">รักกก</span> 
-                </button>
-            </div>
-        </div>
+  </head>
+  <body>
+    <div class="container">
+      <span class="title">ที่รักรักเค้าม้ายยย?</span>
+
+      <img id="mainImage" src="doyou.png" alt="Do you?" />
+      <div class="button-container">
+        <button
+          id="noButton"
+          class="button"
+          onmouseover="changeImage('hm.png')"
+          onmouseout="resetImage()"
+          onclick="handleNoClick()"
+        >
+          ไม่
+        </button>
+        <button
+          id="loveButton"
+          class="button"
+          onmouseover="changeImage('pinkping.png')"
+          onmouseout="resetImage()"
+          onclick="redirectToPage('love.html')"
+        >
+          รักกก
+        </button>
+      </div>
     </div>
-</div>
-<script>
-    let noClickCount = 0;
+    <script>
+      let noClickCount = 0;
 
-    function changeImage(newSrc) {
+      function changeImage(newSrc) {
         document.getElementById("mainImage").src = newSrc;
-    }
+      }
 
-    function resetImage() {
+      function resetImage() {
         document.getElementById("mainImage").src = "doyou.png";
-    }
+      }
 
-    function handleNoClick() {
+      function handleNoClick() {
         noClickCount++;
         if (noClickCount < 10) {
-            shrinkNoButton();
-            moveNoButton();
+          shrinkNoButton();
+          moveNoButton();
         } else {
-            redirectToPage('no.html');
+          redirectToPage("no.html");
         }
-    }
+      }
 
-    function shrinkNoButton() {
-        const noButton = document.getElementById('noButton');
-        const currentPx = parseFloat(getComputedStyle(noButton).paddingLeft);
-        const currentPy = parseFloat(getComputedStyle(noButton).paddingTop);
-        const currentFontSize = parseFloat(getComputedStyle(noButton.querySelector('span')).fontSize);
+      function shrinkNoButton() {
+        const noButton = document.getElementById("noButton");
+        const currentPadding = parseFloat(getComputedStyle(noButton).padding);
+        const currentFontSize = parseFloat(getComputedStyle(noButton).fontSize);
 
-        noButton.style.padding = `${currentPy * 0.8}px ${currentPx * 0.8}px`;
-        noButton.querySelector('span').style.fontSize = `${currentFontSize * 0.8}px`;
-    }
+        noButton.style.padding = `${currentPadding * 0.8}px`;
+        noButton.style.fontSize = `${currentFontSize * 0.8}px`;
+      }
 
-    function moveNoButton() {
-        const noButton = document.getElementById('noButton');
+      function moveNoButton() {
+        const noButton = document.getElementById("noButton");
         const container = noButton.parentElement;
         const containerRect = container.getBoundingClientRect();
         const buttonRect = noButton.getBoundingClientRect();
@@ -116,14 +156,14 @@
         const randomLeft = Math.random() * maxLeft;
         const randomTop = Math.random() * maxTop;
 
-        noButton.style.position = 'absolute';
+        noButton.style.position = "absolute";
         noButton.style.left = `${randomLeft}px`;
         noButton.style.top = `${randomTop}px`;
-    }
+      }
 
-    function redirectToPage(page) {
+      function redirectToPage(page) {
         window.location.href = page;
-    }
-</script>
-</body>
+      }
+    </script>
+  </body>
 </html>
