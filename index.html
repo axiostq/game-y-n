@@ -8,14 +8,13 @@
       href="https://www.iconpacks.net/icons/1/free-heart-icon-431-thumb.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>จีบเธอ</title>
-
   </head>
   <body>
-    <div class="container">
+    <!-- หน้าแรก -->
+    <div id="mainPage" class="container">
       <span class="title">ที่รักรักเค้าม้ายยย?</span>
-
       <img id="mainImage" src="doyou.png" alt="Do you?" />
       <div class="button-container">
         <button
@@ -32,12 +31,24 @@
           class="button"
           onmouseover="changeImage('pinkping.png')"
           onmouseout="resetImage()"
-          onclick="redirectToPage('love.html')"
+          onclick="showPage('lovePage')"
         >
           รักกก
         </button>
       </div>
     </div>
+
+    <!-- หน้ากด รักกกก -->
+    <div id="lovePage" class="container hidden">
+      <h1>กฟหสวก่ฟหกา่กหาสฟ แงงเค้าก็รักเบเบี๋ที่สุดเลยย</h1>
+      <img src="loveu.png" alt="Love You" />
+    </div>
+
+    <!-- หน้าถ้ายังจะกด No เรื่อยๆ  -->
+    <div id="noPage" class="container hidden">
+      <img src="die.png" alt="Die" />
+    </div>
+
     <script>
       let noClickCount = 0;
 
@@ -55,7 +66,7 @@
           shrinkNoButton();
           moveNoButton();
         } else {
-          redirectToPage("no.html");
+          showPage("noPage");
         }
       }
 
@@ -64,8 +75,8 @@
         const currentPadding = parseFloat(getComputedStyle(noButton).padding);
         const currentFontSize = parseFloat(getComputedStyle(noButton).fontSize);
 
-        noButton.style.padding = `${currentPadding * 0.8}px`;
-        noButton.style.fontSize = `${currentFontSize * 0.8}px`;
+        noButton.style.padding = `${currentPadding * 0.9}px`;
+        noButton.style.fontSize = `${currentFontSize * 0.9}px`;
       }
 
       function moveNoButton() {
@@ -85,8 +96,11 @@
         noButton.style.top = `${randomTop}px`;
       }
 
-      function redirectToPage(page) {
-        window.location.href = page;
+      function showPage(pageId) {
+        document.getElementById("mainPage").classList.add("hidden");
+        document.getElementById("lovePage").classList.add("hidden");
+        document.getElementById("noPage").classList.add("hidden");
+        document.getElementById(pageId).classList.remove("hidden");
       }
     </script>
   </body>
